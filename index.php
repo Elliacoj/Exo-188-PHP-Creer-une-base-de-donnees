@@ -23,13 +23,12 @@
 // TODO Votre code ici bas.
 
 try {
-    $maConnexion = ........
+    $maConnexion = new PDO("mysql:host=localhost;charset=utf8", "root", "");
 
-    $request = "
-        Ma super requête SQL pour créer une base de données.
-    ";
+    $request = 'CREATE DATABASE intro_sql';
+    $maConnexion->exec($request);
 
-    $maConnexion->une super méthode pour exécuter ma requete
+    $maConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     echo "La base de données intro_sql a bien été créée.";
 }
@@ -37,6 +36,34 @@ catch (PDOException $exception) {
     echo $exception->getMessage();
 }
 
+
+try {
+    $maConnexion = new PDO("mysql:host=localhost;charset=utf8", "root", "");
+
+    $request = 'DROP DATABASE intro_sql';
+    $maConnexion->exec($request);
+
+    $maConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    echo "La base de données intro_sql a bien été supprimé.";
+}
+catch (PDOException $exception) {
+    echo $exception->getMessage();
+}
+
+try {
+    $maConnexion = new PDO("mysql:host=localhost;charset=utf8", "root", "");
+
+    $request = 'CREATE DATABASE intro_sql';
+    $maConnexion->exec($request);
+
+    $maConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    echo "La base de données intro_sql a bien été créée.";
+}
+catch (PDOException $exception) {
+    echo $exception->getMessage();
+}
 
 
 
